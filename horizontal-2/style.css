@@ -1,0 +1,37 @@
+:root {
+  --circle-color: tomato;
+  --circle-size: 3rem;
+  --separator-color: crimson;
+  --spacing: 0.5rem;
+}
+
+.stepper {
+  display: flex;
+}
+
+.stepper__item {
+  display: flex;
+  align-items:center;
+  gap: var(--spacing);
+}
+
+.stepper__item:not(:last-child) {
+  flex: 1;
+}
+
+.stepper__item:before {
+  content: "";
+  display: block;
+  flex: 0 0 var(--circle-size);
+  height: var(--circle-size);
+  border-radius: 50%;
+  background-color: var(--circle-color);
+}
+
+.stepper__item:not(:last-child):after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background-color: var(--separator-color);
+  margin-inline-end: 0.5rem;
+}

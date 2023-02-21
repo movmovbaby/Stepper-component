@@ -1,0 +1,44 @@
+:root {
+  --circle-size: 3rem;
+  --spacing: 0.5rem;
+  --circle-color: steelblue;
+  --separator-color: darkcyan;
+}
+
+.stepper {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.stepper__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.stepper__item::before {
+  --size: 3rem;
+  content: "";
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  background-color: var(--circle-color);
+}
+
+.stepper__item:not(:last-child):after {
+  content: "";
+  position: relative;
+  top: calc(var(--circle-size) / 2);
+  left: 50%;
+  width: calc(100% - var(--circle-size) - calc(var(--spacing) * 2));
+  left: calc(50% + calc(var(--circle-size) / 2 + var(--spacing)));
+  height: 2px;
+  background-color: var(--separator-color);
+  order: -1;
+}
